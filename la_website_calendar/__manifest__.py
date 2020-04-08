@@ -6,13 +6,14 @@
     'description': """
 Website Appointment Calendar.
 ==========================================
--- Website Appointment Calendar
+-- Website Appointment Calendar view modification for online meetings
 """,
     'category': 'Custom Development',
     'version': '0.1',
     'depends': [
         'website_calendar','web'
     ],
+    'author' : 'Adalogic LLC',
     'data': [
         'views/event_templates.xml',
         # 'data/website_event_data.xml',
