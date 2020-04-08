@@ -1,4 +1,4 @@
-odoo.define('website_appointment_calendar.fullCalendar', function (require) {
+odoo.define('lafilm_website_calendar.fullCalendar', function (require) {
     "use strict";
 
     var ajax = require('web.ajax');
