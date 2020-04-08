@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="event_calendar" inherit_id="website.assets_frontend" name="Event Calendar">
+    <xpath expr="/t" position="inside">
+        <script type="text/javascript" src="/website_appointment_calendar/static/src/js/fullcalendar.js"></script>
+        <script type="text/javascript" src="/website_appointment_calendar/static/src/js/gcal.js"></script>
+        <script type="text/javascript" src="/website_appointment_calendar/static/src/js/fullcalendarevent.js"></script>
+        <link rel="stylesheet" href="/website_appointment_calendar/static/src/css/fullcalendar.css" />
+    </xpath>
+</template>
+
+<!-- <template id="event_left_column" inherit_id="website_event.event_left_column" name="Filters">
+    <xpath expr="//div[@id='left_column']" position="inside"> 
+        <div class="filter_select_box filter_search_box" style="padding-top: 20px;" width="30%">
+            <form t-att-action="'/event'" method="get" t-att-class="search_class" width="30%">
+                <div class="input-group" style="width:100%">
+                    <div class="oe_search">
+                        <input type="text" name="search" class="search-query form-control oe_search_box" placeholder="Search By Name Or Country" t-att-value="search"/>
+                    </div>
+                    <span class="input-group-btn">
+                       <button type="submit" class="btn btn-default oe_search_button"><i class="fa fa-search"/></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </xpath>
+</template>
+
+    <template id="calendar_index" inherit_id="website_event.index" name="Events Calendar">
+        <xpath expr="//div/ol/li/a[@href='/event']" position="replace">
+            <li>
+                <a href="/event"><i class="fa fa-list" aria-hidden="true"></i></a>
+                <a style="padding-left:9px;"  href="/event_calendar"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+            </li>
+        </xpath>
+    </template>
+    
+    <template id="website_calendar_index" name="Events Calendar">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure"/>
+                <div class="container">
+                    <div class="row mt8">
+                        <div class="col-sm-12">
+                            <ol class="breadcrumb mb0">
+                                <li>
+                                    <a href="/event"><i class="fa fa-list" aria-hidden="true"></i></a>
+                                    <a style="padding-left:9px;" href="/event_calendar"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div><br/>
+                    <div class="filter_select_box filter_search_box" style="padding-left: 354px;" width="30%">
+                        <form t-att-action="'/event_calendar'" method="get" t-att-class="search_class" width="30%">
+                            <div class="input-group" style="width:50%">
+                                <div class="oe_search">
+                                    <input type="text" name="search" class="search-query form-control oe_search_box" placeholder="Search By Name Or Country" t-att-value="search"/>
+                                </div>
+                                <span class="input-group-btn">
+                                   <button type="submit" class="btn btn-default oe_search_button"><i class="fa fa-search"/></button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <br/>
+                    <div class="col-md-12">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template> -->
+
+    <template id="website_calendar.index" name="Website Appointment: Appointment Calendars">
+        <t t-call="website.layout">
+            <div id="wrap" class="o_website_calendar">
+                <div class="oe_structure container mb128 o_website_calendar_appointment">
+                    <ul class="wizard mt32 float-right">
+                        <li class="text-primary">Appointment<span class="chevron"></span></li>
+                        <li class="text-muted">Time<span class="chevron"></span></li>
+                        <li class="text-muted">Confirmation<span class="chevron"></span></li>
+                    </ul>
+                    <h1 class="o_page_header mt32">
+                        Schedule an Appointment
+                    </h1>
+                    
+                    <div class="clearfix"/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="calendar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+        <record id="calendar_appointment_type_view_form" model="ir.ui.view">
+        <field name="name">calendar.appointment.type.form</field>
+        <field name="model">calendar.appointment.type</field>
+        <field name="inherit_id" ref="website_calendar.calendar_appointment_type_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='appointment_tz']" position="after">
+                <field name="html_color"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
