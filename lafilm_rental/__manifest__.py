@@ -12,8 +12,10 @@
     "depends": [
         "base",'sale_renting','product','sale'
     ],
-    'data': [
+    'demo': [
         "security/account_security.xml",
+    ],
+    'data': [
         "view/product_view.xml",
     ],
     
